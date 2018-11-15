@@ -69,7 +69,7 @@ public class Rover {
       break;
 
     case W:
-      if (this.currentCoordinates.getxValue() - 1 > 0){
+      if (this.currentCoordinates.getxValue() - 1 < 0){
         throw new AttemptToMoveOutOfPlateauException("Attempting to move out of the Plateau");
       }
       this.currentCoordinates = new Coordinates(this.currentCoordinates.getxValue() - 1, this.getCurrentCoordinates().getyValue());

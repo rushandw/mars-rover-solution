@@ -16,8 +16,8 @@ public class Validator {
       return false;
     }
 
-    if (input.replaceAll("\\s+", "").substring(2).equals("N") || input.replaceAll("\\s+", "").substring(2).equals("E")  || input.replaceAll("\\s+", "").substring(2).equals("S") 
-        || input.replaceAll("\\s+", "").substring(2).equals("W") ) {
+    if (input.replaceAll("\\s+", "").substring(2).equals("N") || input.replaceAll("\\s+", "").substring(2).equals("E") || input.replaceAll("\\s+", "").substring(2).equals("S")
+        || input.replaceAll("\\s+", "").substring(2).equals("W")) {
       return true;
     }
 
@@ -26,11 +26,18 @@ public class Validator {
 
   public static boolean isValidommands(String input) {
 
-    if (input.matches(".*[M,L,R].*")) {
-      return true;
+    if (!input.matches("[a-zA-Z]+")) {
+      return false;
     }
 
-    return false;
+    for (char c : input.toCharArray()) {
+      if (!(c == 'M' || c == 'L' || c == 'R')) {
+        return false;
+      }
+    }
+
+    return true;
+
   }
 
 }
