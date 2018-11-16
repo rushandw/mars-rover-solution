@@ -4,7 +4,7 @@ public class Validator {
 
   public static boolean isValidUpperRightCoordinates(String input) {
 
-    if (input == null || input.replaceAll("\\s+", "").length() != 2 || !input.replaceAll("\\s+", "").matches("[0-9]+")) {
+    if (input == null || input.replaceAll("\\s+", "").length() == 0 || !input.replaceAll("\\s+", "").matches("[0-9]+") || input.split("\\s+").length != 2) {
       return false;
     }
 
@@ -12,12 +12,12 @@ public class Validator {
   }
 
   public static boolean isValidRoverCurrentCoordinates(String input) {
-    if (input == null || input.replaceAll("\\s+", "").length() != 3 || !input.replaceAll("\\s+", "").substring(0, 2).matches("[0-9]+")) {
+    String[] splitted = input.split("\\s+");
+    if (input == null || input.replaceAll("\\s+", "").length() == 0 || splitted.length != 3 || !splitted[0].matches("[0-9]+") || !splitted[1].matches("[0-9]+")) {
       return false;
     }
 
-    if (input.replaceAll("\\s+", "").substring(2).equals("N") || input.replaceAll("\\s+", "").substring(2).equals("E") || input.replaceAll("\\s+", "").substring(2).equals("S")
-        || input.replaceAll("\\s+", "").substring(2).equals("W")) {
+    if (splitted[2].equals("N") || splitted[2].equals("E") || splitted[2].equals("S") || splitted[2].equals("W")) {
       return true;
     }
 

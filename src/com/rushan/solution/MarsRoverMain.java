@@ -43,10 +43,10 @@ public class MarsRoverMain {
         String userInputForRoverCuurentCoordinates = getInput(Constants.MESSAGE_FOR_ROVER_CURRENT_COORDINATES);
         while (true) {
           if (Validator.isValidRoverCurrentCoordinates(userInputForRoverCuurentCoordinates)) {
-
-            int xValue = Integer.parseInt(userInputForRoverCuurentCoordinates.replaceAll("\\s+", "").substring(0, 1));
-            int yValue = Integer.parseInt(userInputForRoverCuurentCoordinates.replaceAll("\\s+", "").substring(1, 2));
-            Direction direction = Direction.valueOf(userInputForRoverCuurentCoordinates.replaceAll("\\s+", "").substring(2).toUpperCase(Locale.ENGLISH));
+            String[] splittedArray = Parser.getSplittedArray(userInputForRoverCuurentCoordinates);
+            int xValue = Integer.parseInt(splittedArray[0]);
+            int yValue = Integer.parseInt(splittedArray[1]);
+            Direction direction = Direction.valueOf(splittedArray[2].toUpperCase(Locale.ENGLISH));
             return new Rover(new Coordinates(xValue, yValue), direction, plateau);
           }
           System.out.println(Constants.INVALID_CURRENT_COORDINATES);
@@ -72,7 +72,7 @@ public class MarsRoverMain {
 
             }
 
-            System.out.println(Constants.ROVER_NEW_POSITION + rover.toString());
+            System.out.println(Constants.ROVER_NEW_POSITION + rover.toString() + "\n\n");
             break;
           }
           System.out.println(Constants.INVALID_COMMANDS);
