@@ -1,6 +1,6 @@
 package com.rushan.solution.command;
 
-import com.rushan.solution.rover.Rover;
+import com.rushan.solution.core.Rover;
 
 public class TurnRightCommand implements Command {
 

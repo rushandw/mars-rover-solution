@@ -1,4 +1,4 @@
-package com.rushan.solution.rover;
+package com.rushan.solution.core;
 
 import com.rushan.solution.constants.Direction;
 import com.rushan.solution.exception.AttemptToMoveOutOfPlateauException;
